@@ -4,7 +4,7 @@ import sys
 
 
 def _calculte_mantissa(bin_number, exponent):
-    val = 0 if exponent < -126 else 1
+    val = 1 if exponent > -127 else 0
     bit_count = -1
     bit_length = 0
     while bit_length <= 22:
@@ -14,8 +14,8 @@ def _calculte_mantissa(bin_number, exponent):
     return val
 
 
-def _convert_position(pos):
-    bin_pos = format(int(pos, 16), "0>32b")
+def convert_ieee754(hex_val):
+    bin_pos = format(int(hex_val, 16), "0>32b")
     sign = (-1)**int(bin_pos[0], 2)
     _exponent = int(bin_pos[1:9], 2) - 127
     mantissa = _calculte_mantissa(bin_pos[9:], _exponent)
@@ -26,5 +26,5 @@ def _convert_position(pos):
 
 if __name__ == "__main__":
     argvs = sys.argv
-    print _convert_position(argvs[1])
+    print convert_ieee754(argvs[1])
     sys.exit()
