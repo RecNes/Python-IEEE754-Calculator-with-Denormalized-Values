@@ -1,7 +1,5 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-import binascii
-import struct
 import sys
 
 
@@ -30,4 +28,3 @@ if __name__ == "__main__":
     argvs = sys.argv
     print _convert_position(argvs[1])
     sys.exit()
-
