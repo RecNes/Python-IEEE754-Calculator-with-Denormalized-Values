@@ -21,7 +21,8 @@ def convert_ieee754(hex_val):
     mantissa = _calculte_mantissa(bin_pos[9:], _exponent)
     exponent = _exponent if _exponent > -127 else -126
     position = sign * 2**exponent * mantissa
-    return "Bin: %s - Sign: %s - Exponent: %s (%s) - Mantissa: %s - Posititon: %s" % (bin_pos, sign, exponent, _exponent, mantissa, position)
+    return "Bin: %s - Sign: %s - Exponent: %s (%s) - Mantissa: %s - Posititon: %s" % (bin_pos, sign, exponent,
+                                                                                      _exponent, mantissa, position)
 
 
 if __name__ == "__main__":
